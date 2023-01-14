@@ -1,0 +1,131 @@
+body {
+  font-family: 'Roboto';
+  font-size: 14px;
+}
+
+div {
+  color: #808080;
+}
+
+.showHideColumn {
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(74, 74, 75);
+}
+
+.showHideColumn:hover {
+  color: rgb(29, 164, 67);
+  text-decoration: none;
+
+}
+
+
+tr:nth-child(even) {
+  background-color: #e0e0e0;
+}
+
+.headerSortDown:after {
+  content: " ";
+  position: relative;
+  left: 2px;
+  border: 8px solid transparent;
+}
+
+.headerSortDown:after {
+  top: 10px;
+  border-top-color: rgb(66, 63, 63);
+}
+
+.headerSortDown {
+  padding-right: 5px;
+}
+
+.headerSortDown:hover {
+  color: rgb(208, 18, 18);
+}
+
+.headerSortDown {
+  cursor: pointer;
+  color: rgb(74, 74, 75);
+}
+
+table,
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+#tabelle {
+  border-spacing: 0;
+  font-weight: bold;
+  vertical-align: bottom;
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+
+
+input,
+select {
+  vertical-align: middle;
+}
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */
+}
+
+input[type="radio"] {
+  vertical-align: text-bottom;
+}
+
+input[type="checkbox"] {
+  vertical-align: bottom;
+}
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline;
+}
+
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+select,
+input,
+textarea {
+  font: 99% sans-serif;
+}
+
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+td,
+td img {
+  vertical-align: top;
+}
+
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer;
+}

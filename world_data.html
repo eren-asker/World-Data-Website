@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta title="world_data" />
+    <meta name="author" content="Eren Asker" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="keywords" content="HTML, CSS, JavaScript"/>
+    <title>world-data</title>
+
+    <script
+      src="https://kit.fontawesome.com/d36308b5ac.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="res nav paragraph.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="table.css" />
+    <!--Got help from Youtube video Build a Dynamic Table with Sorting | HTML, CSS & JavaScript Frontend Mini Projects | Dylan Israel-->
+    <script>
+      function sortTable(n) {
+        var table,
+          rows,
+          switching,
+          i,
+          x,
+          y,
+          shouldSwitch,
+          dir,
+          switchcount = 0;
+        table = document.getElementById("myTable");
+        switching = true;
+
+        dir = "asc";
+
+        while (switching) {
+          switching = false;
+          rows = table.rows;
+
+          for (i = 1; i < rows.length - 1; i++) {
+            shouldSwitch = false;
+
+            x = rows[i].getElementsByTagName("TD")[n];
+            y = rows[i + 1].getElementsByTagName("TD")[n];
+
+            if (dir == "asc") {
+              if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
+            } else if (dir == "desc") {
+              if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                shouldSwitch = true;
+                break;
+              }
+            }
+          }
+          if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+
+            switchcount++;
+          } else {
+            if (switchcount == 0 && dir == "asc") {
+              dir = "desc";
+              switching = true;
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <div>
+        <nav>
+          <a href="#"
+            ><img src="/world_data-logo.svg" alt="world_data-logo"
+          /></a>
+          <ul>
+            <li>
+              <a href="#"><i class="fa-solid fa-table"></i>A1-Table </a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-gears"></i>A2-Parse </a>
+            </li>
+            <li>
+              <a class="nav" href="#"
+                ><i class="fa-regular fa-floppy-disk"></i>A2-Save</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-print"></i>A2-Print</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-brands fa-node"></i>A3-REST</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-map-location-dot"></i>A4-Vis</a>
+            </li>
+            <li>
+              <a href="#"><i class="fa-solid fa-cube"></i>A5-3D</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h1>World Data Overview...</h1>
+    <div class="mainp">
+      <div id="leftp">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti non
+        explicabo iste sunt sint, quia adipisci, saepe quaerat enim et amet
+        repellat eum nobis error dignissimos natus animi ut atque rerum
+        voluptatem, delectus quod perferendis commodi! Pariatur excepturi harum
+        neque numquam magni atque cumque iste rerum fugit, ab sequi, quisquam ea
+        sunt molestias commodi impedit laborum eligendi ratione necessitatibus,
+        dolore ducimus quis. Temporibus, quisquam. Autem distinctio excepturi,
+        repellat ipsum aut laborum nulla officia, atque temporibus eaque
+        obcaecati voluptatum voluptas quis voluptate deleniti perferendis
+        provident laudantium,
+      </div>
+      <div id="midp">
+        deserunt harum vitae nostrum dolore rem eos. Laboriosam, eveniet
+        commodi. Non ducimus voluptates itaque excepturi, officiis dolore.
+        Cumque illum temporibus iure, asperiores tempore, sapiente accusamus
+        voluptate ea similique totam magni doloremque id eveniet? Quo nihil
+        obcaecati at voluptates quae, reiciendis totam assumenda asperiores eum,
+        quod ad. Quis optio sed incidunt iusto cum nulla eaque aperiam vero,
+        delectus quod perferendis commodi! sint eveniet reprehenderit ab,
+        maiores omnis voluptates quis perspiciatis odit eligendi eius
+        blanditiis. Molestiae alias est quo, deleniti autem earum recusandae
+        expedita vel ratione quam quis ullam!
+      </div>
+      <div id="rightp">
+        Quidem doloribus unde illo. Cumque tenetur voluptatibus voluptas optio
+        laudantium nulla vero non repudiandae ea cum ipsum provident corporis
+        sunt, veniam reiciendis illum debitis, maiores omnis voluptates quis
+        perspiciatis odit eligendi. Temporibus, quisquam. Autem distinctio
+        excepturi, repellat ipsum aut laborum nulla officia, atque temporibus
+        eaque obcaecati voluptatum voluptas quis voluptate deleniti perferendis
+        provident laudantium, deserunt harum vitae nostrum dolore rem eos.
+        Nesciunt facere excepturi pariatur ab itaque ducimus possimus! <br />
+        <a class="loremlink" href="url">loremipsum.de</a>
+      </div>
+    </div>
+    <!--Ich habe mehrmals probiert, Show/Hide Function zu implementieren aber könnnte gar nicht damit durchgekommen-->
+    <div style="padding: 5px; padding-left: 0px">
+      <b>Show/Hide : </b>
+      <a class="showHideColumn" data-columnindex="0">children per woman</a> /
+      <a class="showHideColumn" data-columnindex="1">gdp_per_capita</a>/
+      <a class="showHideColumn" data-columnindex="2">gdp_per_capita_growth</a> /
+      <a class="showHideColumn" data-columnindex="3">inflation annual</a> /
+      <a class="showHideColumn" data-columnindex="4">life expectancy</a>
+    </div>
+    <!--Ich und Ege Erdurak haben Tabelle zusammen erstellt, mithilfe einer CSV Table to HTML converter.-->
+    <table
+      id="myTable"
+      class="table table-bordered table-hover table-condensed"
+      style="width: 100%"
+    >
+    <!--Sorting arrow habe ich auf dem Website "Stackoverflow" gesehen-->
+      <thead>
+        <tr>
+          <th title="Field #1">ID</th>
+          <th onclick="sortTable(1)" class="headerSortDown" title="Field #2">
+            Country
+          </th>
+          <th class="tabelle" title="Field #3">children per woman</th>
+          <th class="tabelle" titletitle="Field #4">gdp_per_capita</th>
+          <th class="tabelle" titletitle="Field #5">gdp_per_capita_growth</th>
+          <th class="tabelle" titletitle="Field #6">inflation annual</th>
+          <th class="tabelle" titletitle="Field #7">life expectancy</th>
+        </tr>
+        
+      </thead>
+      
+      <tbody>
+        
+        <tr>
+          
+          <td align="right">1</td>
+          <td>Brazil</td>
+          <td align="right">1.862</td>
+          <td>4.424.758.692</td>
+          <td>-1.520.402.823</td>
+          <td>8.228.535.058</td>
+          <td>74</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">2</td>
+          <td>Canada</td>
+          <td align="right">1.668</td>
+          <td>2.506.986.915</td>
+          <td>-3.953.353.186</td>
+          <td>2.944.408.564</td>
+          <td>80,9</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">3</td>
+          <td>Chile</td>
+          <td align="right">1.873</td>
+          <td>6.451.631.126</td>
+          <td>-2.610.485.847</td>
+          <td>747.050.527</td>
+          <td>78,8</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">4</td>
+          <td>China</td>
+          <td align="right">1.642</td>
+          <td>2.208.403.948</td>
+          <td>8.648.414.427</td>
+          <td>6.684.109.668</td>
+          <td>75,6</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">5</td>
+          <td>Colombia</td>
+          <td align="right">2.405</td>
+          <td>3.137.695.335</td>
+          <td>2.081.538.559</td>
+          <td>3.666.941.163</td>
+          <td>75,3</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">6</td>
+          <td>Ecuador</td>
+          <td align="right">2.690</td>
+          <td>1.692.067.197</td>
+          <td>-1.079.538.461</td>
+          <td>7.595.866.872</td>
+          <td>74,1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">7</td>
+          <td>Egypt</td>
+          <td align="right">2.919</td>
+          <td>1.911.964.501</td>
+          <td>2.856.917.581</td>
+          <td>1.010.750.976</td>
+          <td>70,2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">8</td>
+          <td>Finland</td>
+          <td align="right">1.860</td>
+          <td>2.620.568.832</td>
+          <td>-8.791.558.776</td>
+          <td>0,427730867</td>
+          <td>79,7</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">9</td>
+          <td>France</td>
+          <td align="right">1.978</td>
+          <td>2.250.876.261</td>
+          <td>-3.264.056.248</td>
+          <td>1.050.366.124</td>
+          <td>81</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">10</td>
+          <td>Germany</td>
+          <td align="right">1.376</td>
+          <td>2.436.819.561</td>
+          <td>-4.886.323.581</td>
+          <td>0,595923432</td>
+          <td>80</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">11</td>
+          <td>Iceland</td>
+          <td align="right">2.123</td>
+          <td>3.531.097.441</td>
+          <td>-6.990.418.561</td>
+          <td>6.900.703.626</td>
+          <td>82,2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">12</td>
+          <td>Iraq</td>
+          <td align="right">4.276</td>
+          <td>7.521.833.548</td>
+          <td>1.141.874.289</td>
+          <td>2.522.442.136</td>
+          <td>68,1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">13</td>
+          <td>Japan</td>
+          <td align="right">1.359</td>
+          <td>3.824.202.429</td>
+          <td>-6.180.260.885</td>
+          <td>-208.543.109</td>
+          <td>82,8</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">14</td>
+          <td>Kazakhstan</td>
+          <td align="right">2.537</td>
+          <td>234.586.415</td>
+          <td>-1.437.812.068</td>
+          <td>195.422.854</td>
+          <td>66,6</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">15</td>
+          <td>Mexico</td>
+          <td align="right">2.313</td>
+          <td>5.875.619.997</td>
+          <td>-7.417.438.847</td>
+          <td>4.033.645.258</td>
+          <td>75,5</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">16</td>
+          <td>New Zealand</td>
+          <td align="right">2.125</td>
+          <td>1.477.816.393</td>
+          <td>-1.552.308.788</td>
+          <td>3.486.782.259</td>
+          <td>80,3</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">17</td>
+          <td>Nigeria</td>
+          <td align="right">6.021</td>
+          <td>5.135.003.377</td>
+          <td>43.526.073</td>
+          <td>9.313.146.383</td>
+          <td>58,5</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">18</td>
+          <td>Peru</td>
+          <td align="right">2.545</td>
+          <td>2.955.186.222</td>
+          <td>-2228977721,00</td>
+          <td>449.134.447</td>
+          <td>76,7</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">19</td>
+          <td>Russia</td>
+          <td align="right">1.537</td>
+          <td>280.641.483</td>
+          <td>-7.749.103.694</td>
+          <td>1.160.398.093</td>
+          <td>68,3</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">20</td>
+          <td>Saudi Arabia</td>
+          <td align="right">2.898</td>
+          <td>9.294.355.996</td>
+          <td>-2.242.127.204</td>
+          <td>1.436.222.827</td>
+          <td>77,6</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">21</td>
+          <td>South Africa</td>
+          <td align="right">2.500</td>
+          <td>369.767.368</td>
+          <td>-2.732.989.408</td>
+          <td>7.861.608.575</td>
+          <td>55,8</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">22</td>
+          <td>Sweden</td>
+          <td align="right">1.937</td>
+          <td>3.088.545.914</td>
+          <td>-5.976.535.294</td>
+          <td>1.022.227.082</td>
+          <td>81,2</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">23</td>
+          <td>United Arab Emirates</td>
+          <td align="right">1.903</td>
+          <td>2.250.700.157</td>
+          <td>-1.199.171.952</td>
+          <td>8.549.032.358</td>
+          <td>76,1</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">25</td>
+          <td>United Kingdom</td>
+          <td align="right">1.890</td>
+          <td>2.793.377.767</td>
+          <td>-5.019.251.823</td>
+          <td>2.861.406.642</td>
+          <td>79,7</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td align="right">25</td>
+          <td>United States</td>
+          <td align="right">2.002</td>
+          <td>3.653.922.823</td>
+          <td>-4.342.271.218</td>
+          <td>1.152.326.348</td>
+          <td>78,3</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="padding: 5px; padding-left: 0px">
+      <b>Show/Hide : </b>
+
+      <a class="showHideColumn" data-columnindex="0">children per woman</a> /
+      <a class="showHideColumn" data-columnindex="1">gdp_per_capita</a>/
+      <a class="showHideColumn" data-columnindex="2">gdp_per_capita_growth</a> /
+      <a class="showHideColumn" data-columnindex="3">inflation annual</a> /
+      <a class="showHideColumn" data-columnindex="4">life expectancy</a>
+    </div>
+    <hr
+      style="
+        width: 100%;
+        height: 1px;
+        border-width: 0;
+        color: rgb(29, 164, 67);
+        background-color: rgb(29, 164, 67);
+      "
+    />
+    <footer>
+      <p class="footerp">
+        Copyright &copy 2020 world_data <br />
+        This solution has been created by: <br />
+        Eren Asker <br />
+        First couse exercise <em>HTML, CSS and JS</em> of the lecture Web and
+        Multimedia Engineering
+      </p>
+    </footer>
+  </body>
+</html>
